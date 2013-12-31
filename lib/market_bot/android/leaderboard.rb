@@ -25,6 +25,8 @@ module MarketBot
 
           details_node = snippet_node.css('.details')
 
+          result[:icon_url] = snippet_node.css('cover-image').first.attributes['src'].value
+          
           unless snippet_node.css('.current-rating').empty?
             stars_style = snippet_node.css('.current-rating').first.attributes['style'].value
             stars_width_percent = stars_style[/width:\s+([0-9.]+)%/, 1].to_f
